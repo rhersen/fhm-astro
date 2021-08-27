@@ -42,3 +42,20 @@ td {
 td:nth-child(3) {
   color: darkmagenta;
 }
+
+.table {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: max-content repeat(22, 1fr);
+  font-family: sans-serif;
+}
+
+.region {
+  overflow: hidden;
+}
+
+.cell {
+  color: white;
+  overflow: hidden;
+  text-align: center;
+}

@@ -2,7 +2,7 @@
 // Component Imports
 import Tour from '../components/Tour.astro';
 // You can import components from any supported Framework here!
-import Latest from '../components/Latest.jsx';
+import Seven from '../components/Seven.jsx';
 import fhm from '../fhm.js';
 
 const response = await fetch('https://secure.hersen.name/fohm');
@@ -32,13 +32,6 @@ const { cases } = fhm(columns, rows, cells);
 </head>
 <body>
     <h1>{heading}</h1>
-    <nav>
-        <ul>
-            <li>
-                <a href="7">7 dagars rullande medelvärde per miljon</a>
-            </li>
-        </ul>
-    </nav>
-    <Latest latest={cases.latest} />
+    <Seven cases={cases} />
 </body>
 </html>
