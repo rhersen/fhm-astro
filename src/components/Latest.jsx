@@ -14,9 +14,15 @@ export default function Latest({ columns, rows, cells }) {
         {fhm.cases.latest.rows.map((row) => (
           <tr>
             <th>{row.regionName}</th>
-            <td>{Math.round(row.value)}</td>
-            <td>{Math.round(row.entryDiff.value)}</td>
-            <td>{Math.round(row.entry14.value)}</td>
+            <td style={{ backgroundColor: row.bgcolor }}>
+              {Math.round(row.value)}
+            </td>
+            <td style={{ backgroundColor: row.entryDiff.bgcolor }}>
+              {Math.round(row.entryDiff.value)}
+            </td>
+            <td style={{ backgroundColor: row.entry14.bgcolor }}>
+              {Math.round(row.entry14.value)}
+            </td>
           </tr>
         ))}
       </table>
