@@ -1,4 +1,4 @@
-export default function Latest({heading}) {
+export default function Latest({ heading }) {
   return (
     <div id="react" className="counter">
       <button>-</button>
