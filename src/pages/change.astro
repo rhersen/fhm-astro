@@ -1,6 +1,6 @@
 ---
 import fhm from '../fhm.js';
-import Latest from '../components/Latest.jsx';
+import Change from '../components/Change.jsx';
 
 const response = await fetch('https://secure.hersen.name/fohm');
 const data = await response.json();
@@ -16,19 +16,6 @@ const { cases } = fhm(columns, rows, cells);
 </head>
 <body>
     <h1>{heading}</h1>
-    <nav>
-        <ul>
-            <li>
-                <a href="7">7 dagars rullande medelvärde per miljon</a>
-            </li>
-            <li>
-                <a href="14">14 dagars fall per 100000</a>
-            </li>
-            <li>
-                <a href="change">senaste 7 dagarna jämfört med de 7 föregående</a>
-            </li>
-        </ul>
-    </nav>
-    <Latest latest={cases.latest} />
+    <Change cases={cases} />
 </body>
 </html>
