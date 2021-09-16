@@ -54,9 +54,10 @@ export default function fhm(columns, rows, cells) {
             entryDiff: latestDiff[i],
             regionName: regionNames[i],
           })),
-          ({value}) => -value
+          ({ value }) => -value
         ),
       },
+      latest14,
     },
   };
 }
@@ -193,7 +194,7 @@ function diff(rows, n) {
   });
 }
 
-function cases({Sheets}) {
+function cases({ Sheets }) {
   const sheet = Sheets?.["Antal per dag region"];
   if (!sheet) return {};
 
