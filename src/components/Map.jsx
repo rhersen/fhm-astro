@@ -1,6 +1,6 @@
-import styles from "./Map14.module.scss";
+import styles from "./Map.module.scss";
 
-export default function Map14({ dataArray }) {
+export default function Map({ dataArray }) {
   const stroke = {
     fillOpacity: 1,
     stroke: "black",

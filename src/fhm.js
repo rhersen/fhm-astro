@@ -58,6 +58,8 @@ export default function fhm(columns, rows, cells) {
         ),
       },
       latest14,
+      latest7,
+      latestDiff,
     },
   };
 }
