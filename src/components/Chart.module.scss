@@ -1,0 +1,28 @@
+.chart {
+  display: grid;
+  grid-template-columns: max-content auto;
+
+  svg {
+    grid-column: 1;
+    height: 600px;
+    border: black 2px solid;
+  }
+
+  polyline {
+    stroke-width: 3px;
+    stroke: red;
+  }
+
+  line {
+    stroke: #bbb;
+    stroke-width: 1;
+  }
+}
+
+.yvalues {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-evenly;
+  margin: 12px;
+}
