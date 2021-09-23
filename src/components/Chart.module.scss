@@ -19,6 +19,15 @@
   }
 }
 
+.regions {
+  display: flex;
+  flex-wrap: wrap;
+
+  a {
+    margin: 0 4px;
+  }
+}
+
 .yvalues {
   grid-column: 2;
   display: flex;
