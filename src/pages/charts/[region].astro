@@ -1,0 +1,28 @@
+---
+import fhm from "../../fhm.js";
+import Chart from "../../components/Chart.jsx";
+
+export async function getStaticPaths() {
+  const response = await fetch("https://secure.hersen.name/fohm");
+  const data = await response.json();
+  const { heading, columns, rows, cells } = data;
+  const { cases } = fhm(columns, rows, cells);
+  return cases.charts.map((chart) => ({
+    params: { region: chart.region },
+    props: { chart },
+  }));
+}
+const { region } = Astro.request.params;
+const { chart } = Astro.props;
+---
+<html lang="en">
+  <head>
+    <meta charSet="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>fhm-astro</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <Chart chart={chart} />
+  </body>
+</html>
