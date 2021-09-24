@@ -5,7 +5,7 @@ export default function ChartNav({ columns }) {
     <nav className={styles.regions}>
       <a href="/">Hem</a>
       {columns.map((column) => (
-        <a href={column.toLowerCase()}>{column}</a>
+        <a href={`/charts/${column.toLowerCase()}`}>{column}</a>
       ))}
     </nav>
   );
