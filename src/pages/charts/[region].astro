@@ -1,6 +1,12 @@
 ---
 import fhm from "../../fhm.js";
 import Chart from "../../components/Chart.jsx";
+import ChartNav from "../../components/ChartNav.jsx";
+
+const response = await fetch("https://secure.hersen.name/fohm");
+const data = await response.json();
+const { heading, columns, rows, cells } = data;
+const { cases } = fhm(columns, rows, cells);
 
 export async function getStaticPaths() {
   const response = await fetch("https://secure.hersen.name/fohm");
@@ -12,6 +18,7 @@ export async function getStaticPaths() {
     props: { chart },
   }));
 }
+
 const { region } = Astro.request.params;
 const { chart } = Astro.props;
 ---
@@ -23,6 +30,7 @@ const { chart } = Astro.props;
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   </head>
   <body>
+    <ChartNav columns={cases.columns} />
     <Chart chart={chart} />
   </body>
 </html>
