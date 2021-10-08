@@ -8,9 +8,7 @@ export default function fhm(columns, rows, cells) {
     population,
     1e6 / 7
   );
-  const width = 800;
-  const height = 600;
-  const max = 1400;
+
   const cells7 = addColor(values7, "7").reverse();
   const cellsDiff = addColor(diff(cells, 7), "diff")
     .reverse()
@@ -35,16 +33,7 @@ export default function fhm(columns, rows, cells) {
       cellsDiff,
       charts: columns.map((column, columnIndex) => ({
         region: column.toLowerCase(),
-        width,
-        height,
-        max,
-        yValues: _.range(100, max, 100),
-        points: _.join(
-          _.map(_.slice(values7, 132), (a, rowIndex) => [
-            (rowIndex * width) / (values7.length - 132),
-            height - (a[columnIndex] * height) / max,
-          ])
-        ),
+        values: _.map(values7, (a) => a[columnIndex]),
       })),
       latest: {
         rows: _.sortBy(

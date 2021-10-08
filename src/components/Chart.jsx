@@ -1,13 +1,22 @@
 import styles from "./Chart.module.scss";
+import _ from "lodash";
 
-export default function Chart({
-  chart: { height, max, points, width, yValues } = {},
-} = {}) {
+export default function Chart({ chart: { values } = {} } = {}) {
+  const width = 800;
+  const height = 600;
+  const max = 1400;
+  const yValues = _.range(100, max, 100);
   return (
     <div className={styles.chart}>
       <svg viewBox={[0, 0, width, height].join(" ")}>
-        <polyline fill="none" points={points} />
-        {yValues?.map((yValue) => (
+        <polyline
+          fill="none"
+          points={_.map(values, (y, x, a) => [
+            (x * width) / a.length,
+            height * (1 - y / max),
+          ])}
+        />
+        {yValues.map((yValue) => (
           <line
             x1={0}
             y1={(yValue * height) / max}
@@ -17,7 +26,7 @@ export default function Chart({
         ))}
       </svg>
       <div className={styles.yvalues}>
-        {yValues?.map((yValue) => (
+        {yValues.map((yValue) => (
           <div>{yValue}</div>
         ))}
       </div>
