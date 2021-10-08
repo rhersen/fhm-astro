@@ -1,6 +1,6 @@
 import styles from "./Latest.module.scss";
 
-export default function Latest({ latest }) {
+export default function Latest({ latest } = {}) {
   return (
     <table className={styles.top}>
       <tr>
@@ -9,13 +9,10 @@ export default function Latest({ latest }) {
         <th>ändring i %</th>
         <th>14-dagars</th>
       </tr>
-      {latest.rows.map((row) => (
+      {latest?.rows.map((row) => (
         <tr>
           <th>{row.regionName}</th>
-          <td
-            className={styles.value}
-            style={{ backgroundColor: row.bgcolor }}
-          >
+          <td className={styles.value} style={{ backgroundColor: row.bgcolor }}>
             {Math.round(row.value)}
           </td>
           <td

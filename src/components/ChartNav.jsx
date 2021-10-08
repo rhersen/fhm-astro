@@ -1,10 +1,10 @@
 import styles from "./ChartNav.module.scss";
 
-export default function ChartNav({ columns }) {
+export default function ChartNav({ columns } = {}) {
   return (
     <nav className={styles.regions}>
       <a href="/">Hem</a>
-      {columns.map((column) => (
+      {columns?.map((column) => (
         <a href={`/charts/${column.toLowerCase()}`}>{column}</a>
       ))}
     </nav>

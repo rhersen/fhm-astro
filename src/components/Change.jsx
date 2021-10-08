@@ -1,15 +1,15 @@
 import styles from "./Change.module.scss";
 
-export default function Change({ cases }) {
+export default function Change({ cases } = {}) {
   return (
     <div className={styles.table}>
       <span>Statistikdatum</span>
-      {cases.columns.map((region) => (
+      {cases?.columns.map((region) => (
         <span className={styles.region}>{region}</span>
       ))}
-      {cases.cellsDiff.map((cellArray, index) => (
+      {cases?.cellsDiff.map((cellArray, index) => (
         <>
-          <span>{cases.rows[index * 7]}</span>
+          <span>{cases?.rows[index * 7]}</span>
           {cellArray.map((cell) => (
             <span
               className={styles.cell}
